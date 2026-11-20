@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PDF Booklet Maker</title>
+  <meta name="description" content="Turn any PDF into a print-ready, fold-in-half booklet. Runs entirely on your device.">
+  <meta name="theme-color" content="#3b4cca">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>PDF Booklet Maker</h1>
+    <p class="sub">Fold-in-half booklets from any PDF. Nothing leaves your phone.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <label class="drop" id="drop">
+        <input type="file" id="file" accept="application/pdf,.pdf" hidden>
+        <span class="drop-icon" aria-hidden="true">📄</span>
+        <span id="drop-text">Tap to choose a PDF</span>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Options</h2>
+      <div class="field">
+        <label for="paper">Paper</label>
+        <select id="paper">
+          <option value="auto">Match source (2 pages wide)</option>
+          <option value="a4">A4</option>
+          <option value="letter">US Letter</option>
+          <option value="legal">US Legal</option>
+          <option value="a3">A3</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sig">Signatures</label>
+        <select id="sig">
+          <option value="0">Single booklet (one fold)</option>
+          <option value="2">2 sheets (8 pages) each</option>
+          <option value="3">3 sheets (12 pages) each</option>
+          <option value="4">4 sheets (16 pages) each</option>
+          <option value="5">5 sheets (20 pages) each</option>
+          <option value="8">8 sheets (32 pages) each</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="margin">Outer margin</label>
+        <select id="margin">
+          <option value="0">None</option>
+          <option value="14" selected>Small (5 mm)</option>
+          <option value="28">Medium (10 mm)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="gutter">Spine gap</label>
+        <select id="gutter">
+          <option value="0" selected>None</option>
+          <option value="14">5 mm</option>
+          <option value="28">10 mm</option>
+        </select>
+      </div>
+      <div class="field check">
+        <input type="checkbox" id="flip">
+        <label for="flip">Rotate back sides 180° <small>(use if your printer only flips on the long edge)</small></label>
+      </div>
+    </section>
+
+    <section class="card" id="result" hidden>
+      <h2>Booklet</h2>
+      <p id="summary"></p>
+      <div id="sheets" class="sheets"></div>
+      <div class="actions">
+        <a id="download" class="btn primary" download>Download</a>
+        <button id="share" class="btn" type="button" hidden>Share / Print</button>
+      </div>
+      <p class="hint" id="print-hint"></p>
+    </section>
+
+    <p id="status" class="status" role="status"></p>
+  </main>
+
+  <footer>
+    <a href="https://github.com/euphgd-ctrl/pdf-booklet">Source on GitHub</a>
+    · <span id="version"></span>
+  </footer>
+
+  <script src="vendor/pdf-lib.min.js"></script>
+  <script src="booklet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
