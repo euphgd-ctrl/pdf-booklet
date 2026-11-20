@@ -2,12 +2,12 @@
 
 Turn any PDF into a print-ready, fold-in-half booklet — right from your phone.
 
-**Live app:** https://euphgd-ctrl.github.io/pdf-booklet/
+**Hosting:** static files — serve with GitHub Pages (needs a public repo on free plans) or any static host.
 
 Everything runs in the browser (via [pdf-lib](https://pdf-lib.js.org/)); your PDF never leaves the device.
 
 ## Use it on Android
-1. Open the live link in Chrome.
+1. Open the hosted URL in Chrome (HTTPS is needed for install/offline/share).
 2. Menu ⋮ → **Add to Home screen** / **Install app**.
 3. Pick a PDF (or, once installed, **Share** a PDF from Files/Drive/Gmail → *Booklet*).
 4. Download or Share the result, print **double-sided, flip on short edge, landscape**, fold.
